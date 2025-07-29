@@ -1,0 +1,175 @@
+.HomePage {
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'TheSeasonsRegular', sans-serif;
+    color: rgb(248, 245, 236);
+    padding: 0;
+    margin: 0.25rem auto 0;
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.HomePageWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    margin: 0.15rem auto 0;
+    padding: 0;
+    height: fit-content;
+    width: 95%;
+    box-sizing: border-box;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromUp {
+    from {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.LeftDiv {
+    flex: 1;
+    padding: 0;
+    margin: 0 auto;
+    height: fit-content;
+    width: fit-content;
+    box-sizing: border-box;
+}
+
+.HomeSunflower {
+    width: 15rem;
+    height: auto;
+    filter: drop-shadow(0 0.3rem 0.35rem black);
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 0.9s ease-out forwards;
+    padding: 0.6rem 0.5rem 0.5rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+.RightDiv {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto;
+    padding-right: 1rem;
+    opacity: 0;
+    transform: translateY(-200%);
+    animation: slideInFromUp 0.95s ease-out forwards;
+    box-sizing: border-box;
+}
+
+.RightDiv > h1{
+    font-size: 3.5rem;
+    word-spacing: 0.3rem;
+    padding: 0;
+    margin: 0 auto;
+    line-height: 3.5rem;
+}
+
+.RightDiv > a {
+    color: rgb(248, 245, 236);
+    font-size: 1.3rem;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    text-decoration: none;
+    margin: 0 auto;
+    min-height: 1.8rem;
+    box-sizing: border-box;
+}
+
+.RightDiv > a:hover{
+    cursor: pointer;
+    color: rgb(255, 245, 215);
+    font-family: 'TheSeasonsBold', sans-serif;
+    text-decoration: underline;
+}
+
+
+@keyframes enterAlert {
+  from {
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+  }
+}
+
+@keyframes exitAlert {
+  from {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(0.5);
+  }
+}
+
+
+.Alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    font-family: 'TheSeasonsBold', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    background-color: rgba(248, 245, 236, 0.719);
+    color: rgb(37, 111, 112);
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    width: 40%;
+    z-index: 10;
+    animation:
+        enterAlert 0.25s ease-out forwards,
+        exitAlert 0.25s ease-in forwards 2s;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 600px) {
+  .HomePageWrapper{
+    flex-direction: column;
+    gap: 3rem;
+    height: 100%;
+    max-width: fit-content;
+    padding-top: 2rem;
+  }
+
+  .HomeSunflower{
+    opacity: 0;
+    transform: translateY(-200%);
+    animation: slideInFromUp 0.9s ease-out forwards;
+  }
+}
